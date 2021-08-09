@@ -1,0 +1,22 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-size: cover;
+    color: firebrick;
+}
+
+.title {
+    color: firebrick;
+}
+
+.btn {
+    background-color: greenyellow;
+}
+
+.input_ {
+    padding: 10px;
+    font-size: 20;
+}
+
+.status {
+    background-color: greenyellow;
+}
