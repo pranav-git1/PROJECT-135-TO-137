@@ -10,13 +10,20 @@ body {
 
 .btn {
     background-color: greenyellow;
+    border-radius: 10px;
+    padding: 10px;
 }
 
 .input_ {
     padding: 10px;
     font-size: 20;
+    border-radius: 10px;
 }
 
 .status {
     background-color: greenyellow;
+}
+
+canvas {
+    border-radius: 10px;
 }
