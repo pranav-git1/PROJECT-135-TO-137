@@ -1,6 +1,7 @@
 objects = [];
 status = "";
 input = "";
+no_loop = "";
 
 function setup() {
     canvas = createCanvas(300, 300);
@@ -14,16 +15,19 @@ function draw() {
     image(video, 0, 0, 350, 350);
     if (status != "") {
         objectDetector.detect(video, gotResult);
-        for (i = 0; i < objects.length; i++) {
-            percent = floor(objects[i].confidence * 100);
-            if (objects[i].label == input) {
-                video.stop();
-                objectDetector.detect(gotResult);
-                document.getElementById("status").innerHTML = "Status: OBJECTS DETECTED";
-                var synth = window.speechSynthesis;
-                speak_data = objects[i].label;
-                var utterThis = new SpeechSynthesisUtterance(speak_data);
-                synth.speak(utterThis);
+        if (no_loop == "") {
+            for (i = 0; i < objects.length; i++) {
+                percent = floor(objects[i].confidence * 100);
+                if (objects[i].label == input) {
+                    video.stop();
+                    objectDetector.detect(gotResult);
+                    document.getElementById("status").innerHTML = "Status: OBJECTS DETECTED";
+                    var synth = window.speechSynthesis;
+                    speak_data = objects[i].label;
+                    var utterThis = new SpeechSynthesisUtterance(speak_data);
+                    synth.speak(utterThis);
+                    no_loop = true;
+                }
             }
         }
     }
